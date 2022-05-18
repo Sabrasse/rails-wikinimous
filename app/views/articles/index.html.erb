@@ -1,0 +1,13 @@
+<div class="main"></div>
+<h1>List of articles</h1>
+<ul>
+<div class="cards"></div>
+<% @articles.each do |article| %>
+  <li class="article card-body"><%=link_to article.title, edit_article_path(article) %>
+  <%=link_to "Delete", article_path(article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <p>> <%=article.content %></p></li>
+<% end %>
+</ul>
+
+<div class="btn btn-primary"><%=link_to "Create an article", new_article_path %></div>
